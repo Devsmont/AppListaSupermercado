@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppListaSupermercado.View.FormularioCadastro">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+                <Label Text="registre seu produto" HorizontalOptions="CenterAndExpand" FontSize="30" TextColor="Black"/>
+                <Frame BackgroundColor="#58D68D" CornerRadius="20" BorderColor="AntiqueWhite" Margin="10" VerticalOptions="CenterAndExpand" >
+
+             <StackLayout>
+
+            <Label Text="Id:" Margin="10"/>
+            <Label x:Name="lbl_id" Text="{ Binding Id }" Margin="10"/>
+
+            <Label Text="Descrição"  Margin="10"/>
+            <Entry x:Name="txt_descricao" Text="{ Binding Descricao }" Margin="10"/>
+
+            <Label Text="Preço Estimado" Margin="10" />
+            <Entry x:Name="txt_precoE" Text="{ Binding precoE }" Margin="10"/>
+
+            <Label Text="Preço Pago" Margin="10" />
+            <Entry x:Name="txt_precoP" Text="{ Binding precoP }" Margin="10"/>
+
+            <Label Text="Data Compra" Margin="10"/>
+            <DatePicker x:Name="dtpck_data_compra" Date="{ Binding Data_Compra }" Margin="10"/>
+
+            <Button Text="Salvar"  Margin="20"/>
+             </StackLayout>
+            </Frame>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

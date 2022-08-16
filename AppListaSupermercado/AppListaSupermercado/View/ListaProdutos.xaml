@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppListaSupermercado.View.ListaProdutos">
+   <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                
+                <SearchBar x:Name="txt_busca"
+                           Placeholder="Ex:Óleo,Arroz..."
+                           HorizontalOptions="FillAndExpand" 
+                           />
+                
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Cadastrar um produto" 
+                        Clicked="Btn_Cadastro" 
+                        HorizontalOptions="CenterAndExpand" 
+                        HeightRequest="60" CornerRadius="10" />
+
+
+            </StackLayout>
+
+            <RefreshView x:Name="atualizando">
+                <Frame BackgroundColor="#58D68D" CornerRadius="20" BorderColor="AntiqueWhite" Margin="10" VerticalOptions="CenterAndExpand" >
+                    <ListView x:Name="lista" Margin="2" BackgroundColor="#58D68D"  >
+                        <ListView.Header>
+                            <Grid RowDefinitions="Auto"
+                              ColumnDefinitions="*,*,*" >
+                                <Label Grid.Row="0" Grid.Column="0" Text="Id" Margin="10" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="Nome" Margin="10" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="Preço Esti" Margin="10" />
+                                <Label Grid.Row="0" Grid.Column="3" Text="Preço Pago"  />
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+
+                                    </ViewCell.ContextActions>
+
+                                    <Grid RowDefinitions="Auto" 
+                                      ColumnDefinitions="*,*,*">
+                                        <Label Grid.Row="0" Grid.Column="0"/>
+                                        <Label Grid.Row="0" Grid.Column="1"/>
+                                        <Label Grid.Row="0" Grid.Column="2"/>
+                                    </Grid>
+
+                                </ViewCell>
+
+                            </DataTemplate>
+
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
