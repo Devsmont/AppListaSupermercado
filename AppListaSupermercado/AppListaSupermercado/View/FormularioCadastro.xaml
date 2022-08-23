@@ -5,8 +5,8 @@
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
-                <Label Text="registre seu produto" HorizontalOptions="CenterAndExpand" FontSize="30" TextColor="Black"/>
-                <Frame BackgroundColor="#58D68D" CornerRadius="20" BorderColor="AntiqueWhite" Margin="10" VerticalOptions="CenterAndExpand" >
+                <Label Text="Registre seu produto" HorizontalOptions="CenterAndExpand" FontSize="30" TextColor="#D6D071"/>
+                <Frame BackgroundColor="#737373" CornerRadius="20" BorderColor="#D6D071" Margin="10" VerticalOptions="CenterAndExpand" >
 
              <StackLayout>
 

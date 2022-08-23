@@ -2,15 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppListaSupermercado.View.ListaProdutos">
-   <ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                
-                <SearchBar x:Name="txt_busca"
+                <Frame HorizontalOptions="FillAndExpand" BackgroundColor="#565656">
+                    <SearchBar x:Name="txt_busca"
                            Placeholder="Ex:Óleo,Arroz..."
                            HorizontalOptions="FillAndExpand" 
+                           Margin="-10,20,20,20"
+                           TextColor="#D6D071"
+                           PlaceholderColor="#D6D071"
+                           CancelButtonColor="#D6D071"
                            />
-                
+               </Frame>
+
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cadastrar um produto" 
@@ -21,16 +26,16 @@
 
             </StackLayout>
 
-            <RefreshView x:Name="atualizando">
-                <Frame BackgroundColor="#58D68D" CornerRadius="20" BorderColor="AntiqueWhite" Margin="10" VerticalOptions="CenterAndExpand" >
-                    <ListView x:Name="lista" Margin="2" BackgroundColor="#58D68D"  >
+            <RefreshView x:Name="atualizando" IsRefreshing="False">
+                <Frame BackgroundColor="#737373" CornerRadius="20" BorderColor="#D6D071" Margin="10" VerticalOptions="CenterAndExpand" >
+                    <ListView x:Name="lista" Margin="2" BackgroundColor="#737373"  >
                         <ListView.Header>
-                            <Grid RowDefinitions="Auto"
-                              ColumnDefinitions="*,*,*" >
-                                <Label Grid.Row="0" Grid.Column="0" Text="Id" Margin="10" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="Nome" Margin="10" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="Preço Esti" Margin="10" />
-                                <Label Grid.Row="0" Grid.Column="3" Text="Preço Pago"  />
+                            <Grid RowDefinitions="auto"
+                              ColumnDefinitions="20,auto,*,*" >
+                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Small" Grid.Row="0" Grid.Column="0" Text="Id"  />
+                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Small" Grid.Row="0" Grid.Column="1" Text="Nome"  />
+                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Small" Grid.Row="0" Grid.Column="2" Text="Preço Estimado"  />
+                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Small" Grid.Row="0" Grid.Column="3" Text="Preço Pago"  />
                             </Grid>
                         </ListView.Header>
                         <ListView.ItemTemplate>

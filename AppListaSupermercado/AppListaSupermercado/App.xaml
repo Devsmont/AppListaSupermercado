@@ -10,8 +10,8 @@
 
         <!-- Modificando a cor da Barra acima do aplicativo-->
         <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="#ABEBC6" />
-            <Setter Property="BarTextColor" Value="#191970" />
+            <Setter Property="BarBackgroundColor" Value="#656565" />
+            <Setter Property="BarTextColor" Value="#D6D071" />
             <Setter Property="Title" Value="" />
 
 
@@ -23,7 +23,7 @@
         <Style TargetType="ContentPage"
                ApplyToDerivedTypes="True">
             <Setter Property="BackgroundColor"
-                    Value="#ABEBC6" />
+                    Value="#484848" />
         </Style>
 
         <!-- Modificando a cor e o tamanho da fonte das Labels-->
@@ -31,7 +31,7 @@
             <Setter Property="FontSize"
                     Value="Medium" />
             <Setter Property="TextColor"
-                    Value="#FFFF"  />
+                    Value="#D6D071"  />
 
         </Style>
 
@@ -41,11 +41,16 @@
             <Setter Property="FontSize"
                     Value="Medium" />
             <Setter Property="BackgroundColor"
-                    Value="#FFF" />
+                    Value="#656565" />
             <Setter Property="TextColor"
-                    Value="Black" />
+                    Value="#D6D071" />
             <Setter Property="CornerRadius"
                     Value="20" />
+            <Setter Property="BorderColor"
+                    Value="#D6D071"/>
+            <Setter Property="BorderWidth"
+                    Value="1"/>
+
         </Style>
 
     </Application.Resources>
