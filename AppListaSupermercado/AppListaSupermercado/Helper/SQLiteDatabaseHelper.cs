@@ -10,11 +10,11 @@ namespace AppListaSupermercado.Helper
 {
     public class SQLiteDatabaseHelper
     {
-        readonly SQLiteConnection _conn;
+        readonly SQLiteAsyncConnection _conn;
 
         public SQLiteDatabaseHelper(string path)
         {
-            _conn = new SQLiteConnection(path);
+            _conn = new SQLiteAsyncConnection(path);
 
             _conn.CreateTableAsync<Produto>().Wait();
         }
@@ -26,11 +26,10 @@ namespace AppListaSupermercado.Helper
 
         public Task<List<Produto>> Update(Produto p)
         {
-            string sql = "UPDATE produto SET Descricao=?, Quantidade=?, Preco=? WHERE id= ?";
-            return _conn.QueryAsync<Produto>(sql, p.Descricao, p.Quantidade, p.PrecoPago, p.id);
+            string sql = "UPDATE produto SET NomeProduto=?, Quantidade=?, PrecoPago=?, PrecoEstimado=? WHERE id= ?";
+            return _conn.QueryAsync<Produto>(sql, p.NomeProduto, p.Quantidade, p.PrecoPago, p.Id, p.PrecoEstimado);
 
         }
-
         public Task<List<Produto>> GetAll()
         {
             return _conn.Table<Produto>().ToListAsync();
@@ -38,14 +37,14 @@ namespace AppListaSupermercado.Helper
 
         public Task<int> Delete(int id)
         {
-            return _conn.Table<Produto>().DeleteAsync(int => i.Id == id);
+            return _conn.Table<Produto>().DeleteAsync(i => i.Id == id);
         }
 
         public Task<List<Produto>> Search(string q)
         {
-           string sql = "SELECT * FROM Produto WHERE Descricao LIKE '%" + q + "%' ";
+            string sql = "SELECT * FROM Produto WHERE NomeProduto LIKE '%" + q + "%' ";
 
-           return _conn.QueryAsync<Produto>(sql);
+            return _conn.QueryAsync<Produto>(sql);
         }
     }
 }

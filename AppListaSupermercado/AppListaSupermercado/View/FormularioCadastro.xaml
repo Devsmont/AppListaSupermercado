@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppListaSupermercado.View.FormularioCadastro">
+             x:Class="AppListaSupermercado.View.FormularioCadastro"
+             Title="{Binding NomeProduto}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
         <StackLayout>
@@ -10,26 +14,30 @@
 
              <StackLayout>
 
-            <Label Text="Id:" Margin="10"/>
-            <Label x:Name="lbl_id" Text="{ Binding Id }" Margin="10"/>
+            
 
-            <Label Text="Descrição"  Margin="10"/>
-            <Entry x:Name="txt_descricao" Text="{ Binding Descricao }" Margin="10"/>
+            <Label Text="Nome do Produto"  Margin="10"/>
+            <Entry x:Name="txt_descricao"  Margin="10" />
 
             <Label Text="Preço Estimado" Margin="10" />
-            <Entry x:Name="txt_precoE" Text="{ Binding precoE }" Margin="10"/>
+            <Entry x:Name="txt_precoE" Margin="10" Keyboard="Numeric"/>
 
             <Label Text="Preço Pago" Margin="10" />
-            <Entry x:Name="txt_precoP" Text="{ Binding precoP }" Margin="10"/>
+            <Entry x:Name="txt_precoP" Margin="10" Keyboard="Numeric"/>
 
-            <Label Text="Data Compra" Margin="10"/>
-            <DatePicker x:Name="dtpck_data_compra" Date="{ Binding Data_Compra }" Margin="10"/>
+            <Label Text="Quantidade" Margin="10" />
+            <Entry x:Name="txt_quantidade" Margin="10" Keyboard="Numeric"/>
 
-            <Button Text="Salvar"  Margin="20"/>
+
+            
+                 
              </StackLayout>
             </Frame>
 
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>
+    
+    
+    
 </ContentPage>
