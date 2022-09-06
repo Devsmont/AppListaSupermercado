@@ -14,6 +14,9 @@ namespace AppListaSupermercado.Helper
 
         public SQLiteDatabaseHelper(string path)
         {
+            Console.WriteLine("_______________________________________________________________________________");
+            Console.WriteLine("CHEGOU no construtor");
+
             _conn = new SQLiteAsyncConnection(path);
 
             _conn.CreateTableAsync<Produto>().Wait();
@@ -32,7 +35,22 @@ namespace AppListaSupermercado.Helper
         }
         public Task<List<Produto>> GetAll()
         {
-            return _conn.Table<Produto>().ToListAsync();
+            Task<List<Produto>> lista = null;
+
+            
+
+
+            try
+            {
+                lista = _conn.Table<Produto>().ToListAsync();
+
+            } catch (Exception ex)
+            {
+                Console.WriteLine("_______________________________________________________________________________");
+                Console.WriteLine(ex.Message);
+            }
+
+            return lista;
         }
 
         public Task<int> Delete(int id)

@@ -2,6 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppListaSupermercado.View.ListaProdutos">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_Somar" />
+        
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -26,9 +32,9 @@
 
             </StackLayout>
 
-            <RefreshView x:Name="atualizando" IsRefreshing="False">
+            <RefreshView x:Name="atualizando" IsRefreshing="True">
                 <Frame BackgroundColor="#737373" CornerRadius="20" BorderColor="#D6D071" Margin="10" VerticalOptions="CenterAndExpand" >
-                    <ListView x:Name="lista" Margin="2" BackgroundColor="#737373"  >
+                    <ListView x:Name="lista" Margin="2" BackgroundColor="#737373" ItemSelected="lista_ItemSelected"  >
                         <ListView.Header>
                             <Grid RowDefinitions="auto"
                               ColumnDefinitions="20,auto,*,*" >
@@ -47,10 +53,11 @@
                                     </ViewCell.ContextActions>
 
                                     <Grid RowDefinitions="Auto" 
-                                      ColumnDefinitions="*,*,*">
-                                        <Label Grid.Row="0" Grid.Column="0"/>
-                                        <Label Grid.Row="0" Grid.Column="1"/>
-                                        <Label Grid.Row="0" Grid.Column="2"/>
+                                      ColumnDefinitions="*,*,*,*">
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding NomeProduto}"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Quantidade}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding PrecoEstimado}"/>
+                                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding PrecoPago}"/>
                                     </Grid>
 
                                 </ViewCell>

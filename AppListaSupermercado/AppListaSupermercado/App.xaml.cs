@@ -22,7 +22,7 @@ namespace AppListaSupermercado
 
                     database = new SQLiteDatabaseHelper(path);
                 }
-                return Database;
+                return database;
             }
         }
         public App()

@@ -20,7 +20,7 @@ namespace AppListaSupermercado.View
         {
             InitializeComponent();
 
-            lista_produtos.ItemsSource = lista_produtos;
+            lista.ItemsSource = lista_produtos;
         }
 
         private void Btn_Cadastro(object sender, EventArgs e)
@@ -31,36 +31,40 @@ namespace AppListaSupermercado.View
 
         protected override void OnAppearing()
         {
-            /**
-             * Se a ObservableCollection estiver vazia é executado para obter todas as linhas do db3
-             */
-            if (lista_produtos.Count == 0)
+            try
             {
-                /**
-                 * Inicializando a Thread que irá buscar o array de objetos no arquivo db3
-                 * via classe SQLiteDatabaseHelper encapsulada na propriedade Database da
-                 * classe App.
-                 */
-                System.Threading.Tasks.Task.Run(async () =>
+                if (lista_produtos.Count == 0)
                 {
-                    /**
-                     * Retornando o array de objetos vindos do db3, foi usada uma variável tem do tipo
-                     * List para que abaixo no foreach possamos percorrer a lista temporária e add
-                     * os itens à ObservableCollection
-                     */
-                    List<Produto> temp = await App.Database.GetAll();
 
-                    foreach (Produto item in temp)
+                    System.Threading.Tasks.Task.Run(async () =>
                     {
-                        lista_produtos.Add(item);
-                    }
 
-                    /**
-                     * Após carregar os registros para a ObservableCollection removemos o loading da tela.
-                     */
+                        List<Produto> temp = await App.Database.GetAll();
 
-                });
+                        foreach (Produto item in temp)
+                        {
+                            lista_produtos.Add(item);
+                        }
+
+
+
+                    });
+                }
+            } catch(Exception ex)
+            {
+                //DisplayAlert("Ops", ex.Message, "OK");
+               
             }
+
+        }
+
+        private void lista_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
+        }
+
+        private void ToolbarItem_Clicked_Somar(object sender, EventArgs e)
+        {
 
         }
     }
